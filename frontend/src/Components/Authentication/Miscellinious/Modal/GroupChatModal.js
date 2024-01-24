@@ -36,6 +36,7 @@ const GroupChatModal = ({ children }) => {
   const handleSearch = async (query) => {
     setSearch(query);
     if (!query) {
+      setSearchResults([]);
       return;
     }
     try {
@@ -46,11 +47,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
 
-      const { data } = await axios.get(
-        `/api/user?search=${search}`,
-        config
-      );
-
+      const { data } = await axios.get(`/api/user?search=${query}`, config);
       setLoading(false);
       setSearchResults(data);
     } catch (error) {
@@ -99,6 +96,8 @@ const GroupChatModal = ({ children }) => {
       );
       setChats([data, ...chats]);
       setLoading(false);
+      setSearchResults([]);
+      setSelectedUsers([]);
       onClose();
       toast({
         title: "New group chat Created.",
@@ -145,7 +144,11 @@ const GroupChatModal = ({ children }) => {
         size={"lg"}
         // finalFocusRef={finalRef}
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={() => {
+          onClose();
+          setSelectedUsers([]);
+          setSearchResults([]);
+        }}
       >
         <ModalOverlay />
         <ModalContent h={"410px"}>
@@ -175,7 +178,8 @@ const GroupChatModal = ({ children }) => {
               <Input
                 placeholder="Add users eg: Izhar, Shan,..."
                 mb={3}
-                onChange={(e) => handleSearch(e.target.value)}
+                // value={search}
+                onKeyUp={(e) => handleSearch(e.target.value)}
               />
             </FormControl>
 
@@ -191,7 +195,7 @@ const GroupChatModal = ({ children }) => {
             </Box>
             {loading ? (
               <div>Loading</div>
-            ) : (
+            ) : searchResults.length !== 0 ? (
               searchResults
                 ?.slice(0, 4)
                 .map((user) => (
@@ -201,6 +205,8 @@ const GroupChatModal = ({ children }) => {
                     handleFunction={() => handleGroup(user)}
                   />
                 ))
+            ) : (
+              <>No results...!</>
             )}
           </ModalBody>
 

@@ -208,10 +208,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           <Box
             style={{
               display: "flex",
+              backgroundImage: `url("https://media.istockphoto.com/id/1328631201/photo/angry-and-smiley-face-wooden-blocks-on-colored-background.webp?b=1&s=170667a&w=0&k=20&c=tDAVUkO7B-_kXmutchWYwQ7X0ksg1j1-ow4OZsxFpTw=")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
             flexDir={"column"}
             justifyContent={"flex-end"}
             pb={3}
+            p={2}
             bg={"#E8E8E8"}
             h={"75vh"}
             w={"100%"}
@@ -227,17 +231,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin={"auto"}
               />
             ) : (
-              <div
-                className="messages"
-                style={{
-                  backgroundImage: `url("https://media.istockphoto.com/id/1328631201/photo/angry-and-smiley-face-wooden-blocks-on-colored-background.webp?b=1&s=170667a&w=0&k=20&c=tDAVUkO7B-_kXmutchWYwQ7X0ksg1j1-ow4OZsxFpTw=")`,
-                  backgroundSize: "cover",
-                  // display: "flex",
-                  // alignItems: "center",
-                  // justifyContent: "center",
-                  // height: "100%",
-                }}
-              >
+              <div className="messages">
                 <ScrollableChat messages={messages} />
               </div>
             )}
@@ -288,7 +282,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               ) : (
                 <></>
               )}
-              <InputGroup>
+              <InputGroup bg={"white"}>
                 <Input
                   placeholder="Enter a messsge..."
                   variant={"filled"}
@@ -317,6 +311,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             style={{
               backgroundImage: `url("https://c8.alamy.com/comp/T8BXP3/smile-illustration-blinking-the-eye-humor-T8BXP3.jpg")`,
               backgroundSize: "cover",
+              backgroundPosition: "center",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -326,7 +321,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             <Text
               fontSize={"3xl"}
               pb={3}
-              marginBottom={"150"}
+              // marginBottom={"150"}
               fontFamily={"Work sans"}
             >
               Click on a user and start chat.
