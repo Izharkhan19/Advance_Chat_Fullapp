@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  /* background-image: url("../src//Components//Imaes/chat_Background.png"); */
+  /* background-image: url("https://media.istockphoto.com/id/1310587304/photo/wood-table-green-wall-background-with-sunlight-window-create-leaf-shadow-on-wall-with-blur.jpg?s=612x612&w=0&k=20&c=_iFr7t7zC6K4EhLFG5rsl3MCLT2KjQoVtoPlT4pW7k0="); */
+  background-image: url("https://assets-global.website-files.com/63fc7728f7ed69ee870d250b/642d0d136731c4ce653938ea_blog-header_001.webp");
+  background-size: cover;
+  background-position: center;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.281);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
