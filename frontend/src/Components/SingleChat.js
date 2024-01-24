@@ -21,7 +21,9 @@ import axios from "axios";
 import ScrollableChat from "./ScrollableChat";
 import { io } from "socket.io-client";
 
-const ENDPOINT = "http://127.0.0.1:5000";
+const ENDPOINT = "/";
+// const ENDPOINT = "http://127.0.0.1:5000";
+// const ENDPOINT = "https://eazzy-chat.onrender.com";
 // const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
